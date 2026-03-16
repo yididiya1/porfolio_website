@@ -126,11 +126,45 @@ function isJailbreakAttempt(text: string): boolean {
   return BLOCKED_PATTERNS.some((pattern) => pattern.test(text));
 }
 
+// ── In-memory rate limiter (10 req / 60 s per IP) ──────────────────────────
+const RATE_LIMIT = 10;
+const WINDOW_MS = 60_000;
+
+const ipStore = new Map<string, { count: number; windowStart: number }>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = ipStore.get(ip);
+
+  if (!entry || now - entry.windowStart > WINDOW_MS) {
+    ipStore.set(ip, { count: 1, windowStart: now });
+    return false;
+  }
+
+  if (entry.count >= RATE_LIMIT) return true;
+
+  entry.count += 1;
+  return false;
+}
+
 // ── Route handler ──────────────────────────────────────────────────────────
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function POST(req: NextRequest) {
   try {
+    // Rate limit check
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
+      req.headers.get("x-real-ip") ??
+      "unknown";
+
+    if (isRateLimited(ip)) {
+      return Response.json(
+        { error: "Too many requests. Please wait a minute before asking again." },
+        { status: 429 }
+      );
+    }
+
     const { messages } = await req.json();
 
     if (!process.env.OPENAI_API_KEY) {
