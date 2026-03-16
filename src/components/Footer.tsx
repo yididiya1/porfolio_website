@@ -14,7 +14,7 @@ export default function Footer() {
         <p className="text-sm font-mono" style={{ color: "var(--text-muted)" }}>
           © {year} Yididiya Kebede Aga. Built with{" "}
           <span style={{ color: "var(--accent)" }}>Next.js</span> +{" "}
-          <span style={{ color: "#a78bfa" }}>Tailwind</span>.
+          <span style={{ color: "#3EC9B8" }}>Tailwind</span>.
         </p>
 
         <div className="flex items-center gap-3">
@@ -33,7 +33,7 @@ export default function Footer() {
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;
                 el.style.color = "var(--accent)";
-                el.style.borderColor = "rgba(0,212,255,0.35)";
+                el.style.borderColor = "rgba(232,150,60,0.35)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;

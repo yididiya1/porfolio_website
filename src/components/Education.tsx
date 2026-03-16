@@ -56,7 +56,7 @@ export default function Education() {
           transition={{ duration: 0.55 }}
           className="mb-14"
         >
-          <p className="section-label mb-2">// 04. background</p>
+          <p className="section-label mb-2">§ 04 — background</p>
           <h2
             className="text-3xl sm:text-4xl font-bold tracking-tight"
             style={{ color: "var(--text-primary)" }}
@@ -75,13 +75,13 @@ export default function Education() {
               className="rounded-xl p-7 relative overflow-hidden"
               style={{
                 background: "var(--background)",
-                border: `1px solid ${edu.current ? "rgba(0,212,255,0.3)" : "var(--border)"}`,
+                border: `1px solid ${edu.current ? "rgba(232,150,60,0.3)" : "var(--border)"}`,
               }}
             >
               {edu.current && (
                 <div
                   className="absolute top-0 right-0 px-3 py-1 text-xs font-mono rounded-bl-xl"
-                  style={{ background: "rgba(0,212,255,0.12)", color: "var(--accent)" }}
+                  style={{ background: "rgba(232,150,60,0.12)", color: "var(--accent)" }}
                 >
                   Current
                 </div>
@@ -92,13 +92,13 @@ export default function Education() {
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{
-                    background: edu.current ? "rgba(0,212,255,0.1)" : "rgba(124,58,237,0.1)",
-                    border: `1px solid ${edu.current ? "rgba(0,212,255,0.25)" : "rgba(124,58,237,0.25)"}`,
+                    background: edu.current ? "rgba(232,150,60,0.1)" : "rgba(62,201,184,0.1)",
+                    border: `1px solid ${edu.current ? "rgba(232,150,60,0.25)" : "rgba(62,201,184,0.25)"}`,
                   }}
                 >
                   <GraduationCap
                     size={20}
-                    style={{ color: edu.current ? "var(--accent)" : "#a78bfa" }}
+                    style={{ color: edu.current ? "var(--accent)" : "#3EC9B8" }}
                   />
                 </div>
                 <div>

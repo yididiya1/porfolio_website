@@ -100,7 +100,7 @@ function RepoCard({ repo }: { repo: GitHubRepo }) {
     <a href={repo.html_url} target="_blank" rel="noopener noreferrer"
       className="group flex flex-col gap-1.5 p-2.5 rounded-xl transition-all duration-150"
       style={{ background:"var(--background)", border:"1px solid var(--border)" }}
-      onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.borderColor="rgba(0,212,255,0.25)";}}
+      onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.borderColor="rgba(232,150,60,0.25)";}}
       onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.borderColor="var(--border)";}}>
       <div className="flex items-start justify-between gap-1">
         <span className="text-[11px] font-semibold font-mono truncate" style={{ color:"var(--accent)" }}>{repo.name}</span>
@@ -170,7 +170,7 @@ function GitHubPanel() {
         <a href={GH_PROFILE} target="_blank" rel="noopener noreferrer"
           className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-medium transition-all"
           style={{ background:"rgba(255,255,255,0.04)", border:"1px solid var(--border)", color:"var(--text-secondary)" }}
-          onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.borderColor="rgba(0,212,255,0.3)";
+          onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.borderColor="rgba(232,150,60,0.3)";
             (e.currentTarget as HTMLElement).style.color="var(--accent)";}}
           onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.borderColor="var(--border)";
             (e.currentTarget as HTMLElement).style.color="var(--text-secondary)";}}>
@@ -199,7 +199,7 @@ function GitHubPanel() {
         style={{ background:"var(--background)", border:"1px solid var(--border)" }}>
         <p className="text-[10px] font-mono mb-2" style={{ color:"var(--text-muted)" }}>Contribution activity</p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`https://ghchart.rshah.org/00d4ff/${GH_USER}`} alt="GitHub contributions"
+        <img src={`https://ghchart.rshah.org/E8963C/${GH_USER}`} alt="GitHub contributions"
           className="w-full" style={{ filter:"saturate(1.2) brightness(0.95)" }} />
       </div>
       <div className="flex flex-col gap-2 flex-1">
@@ -339,7 +339,7 @@ export default function CodingStats() {
       <div className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity:0, y:16 }} whileInView={{ opacity:1, y:0 }}
           transition={{ duration:0.5, ease:EASE }} viewport={{ once:true }} className="mb-10">
-          <p className="section-label">// 07. coding profiles</p>
+          <p className="section-label">§ 07 — coding profiles</p>
           <h2 className="text-3xl sm:text-4xl font-bold mt-2" style={{ color:"var(--text-primary)" }}>
             GitHub &amp; <span className="gradient-text">LeetCode</span>
           </h2>

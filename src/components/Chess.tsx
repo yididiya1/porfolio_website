@@ -61,10 +61,10 @@ function MiniBoard() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(8, 1fr)",
-          border: "2px solid rgba(0,212,255,0.25)",
+          border: "2px solid rgba(232,150,60,0.25)",
           borderRadius: "6px",
           overflow: "hidden",
-          boxShadow: "0 0 40px rgba(0,212,255,0.08)",
+          boxShadow: "0 0 40px rgba(232,150,60,0.08)",
         }}
       >
         {board.map((row, r) =>
@@ -78,10 +78,10 @@ function MiniBoard() {
                 style={{
                   aspectRatio: "1",
                   background: isHl
-                    ? "rgba(0,212,255,0.22)"
+                    ? "rgba(232,150,60,0.22)"
                     : isLight
-                    ? "#1a2535"
-                    : "#0d1520",
+                    ? "var(--chess-light-sq)"
+                    : "var(--chess-dark-sq)",
                   transition: "background 0.3s",
                   fontSize: "clamp(10px, 2.5vw, 18px)",
                 }}
@@ -131,7 +131,7 @@ export default function Chess() {
       {/* BG decoration */}
       <div
         className="pointer-events-none absolute -right-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-[0.05]"
-        style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #3EC9B8 0%, transparent 70%)" }}
       />
 
       <div
@@ -148,9 +148,9 @@ export default function Chess() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55 }}
             >
-              <p className="section-label mb-3">// 05. beyond the code</p>
+              <p className="section-label mb-3">§ 05 — beyond the code</p>
               <h2
-                className="text-3xl sm:text-4xl font-bold tracking-tight mb-4"
+                className="text-3xl sm:text-4xl font-bold mb-4"
                 style={{ color: "var(--text-primary)" }}
               >
                 Want to play{" "}
@@ -184,9 +184,9 @@ export default function Chess() {
                 >
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ background: "rgba(124,58,237,0.12)", border: "1px solid rgba(124,58,237,0.25)" }}
+                    style={{ background: "rgba(62,201,184,0.12)", border: "1px solid rgba(62,201,184,0.25)" }}
                   >
-                    <Icon size={15} style={{ color: "#a78bfa" }} />
+                    <Icon size={15} style={{ color: "#3EC9B8" }} />
                   </div>
                   <div>
                     <p className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{label}</p>
@@ -209,15 +209,15 @@ export default function Chess() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium text-sm transition-all duration-200"
                 style={{
-                  background: "rgba(124,58,237,0.15)",
-                  border: "1px solid rgba(124,58,237,0.4)",
-                  color: "#a78bfa",
+                  background: "rgba(62,201,184,0.15)",
+                  border: "1px solid rgba(62,201,184,0.4)",
+                  color: "#3EC9B8",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(124,58,237,0.25)";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(62,201,184,0.25)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(124,58,237,0.15)";
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(62,201,184,0.15)";
                 }}
               >
                 <Swords size={15} />
@@ -235,7 +235,7 @@ export default function Chess() {
                   color: "var(--text-secondary)",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(0,212,255,0.35)";
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(232,150,60,0.35)";
                   (e.currentTarget as HTMLAnchorElement).style.color = "var(--text-primary)";
                 }}
                 onMouseLeave={(e) => {
@@ -259,7 +259,7 @@ export default function Chess() {
             {/* Terminal bar */}
             <div
               className="w-full rounded-t-xl px-4 py-2 flex items-center gap-2"
-              style={{ background: "#080c14", border: "1px solid var(--border)" }}
+              style={{ background: "var(--terminal-bar)", border: "1px solid var(--border)" }}
             >
               <span className="w-3 h-3 rounded-full" style={{ background: "#ff5f57" }} />
               <span className="w-3 h-3 rounded-full" style={{ background: "#febc2e" }} />
@@ -270,7 +270,7 @@ export default function Chess() {
             </div>
             <div
               className="w-full flex flex-col items-center p-6 rounded-b-xl"
-              style={{ background: "#080c14", border: "1px solid var(--border)", borderTop: "none" }}
+              style={{ background: "var(--terminal-bar)", border: "1px solid var(--border)", borderTop: "none" }}
             >
               <MiniBoard />
               <p className="mt-4 text-xs font-mono" style={{ color: "var(--text-muted)" }}>

@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X, Terminal, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/components/ThemeProvider";
 
 const links = [
   { href: "#about", label: "About" },
@@ -10,9 +11,6 @@ const links = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#education", label: "Education" },
-  { href: "#chess", label: "Chess ♟" },
-  { href: "#stats", label: "Stats" },
-  { href: "#terminal", label: "Terminal" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -20,6 +18,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("");
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => {
@@ -46,7 +45,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
           background: scrolled
-            ? "rgba(10,14,23,0.92)"
+            ? "var(--nav-scrolled-bg)"
             : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: scrolled ? "1px solid rgba(30,45,69,0.6)" : "none",
@@ -57,7 +56,7 @@ export default function Navbar() {
           <a href="#" className="flex items-center gap-2 group">
             <div
               className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "rgba(0,212,255,0.12)", border: "1px solid rgba(0,212,255,0.3)" }}
+              style={{ background: "rgba(232,150,60,0.12)", border: "1px solid rgba(232,150,60,0.3)" }}
             >
               <Terminal size={16} style={{ color: "var(--accent)" }} />
             </div>
@@ -84,7 +83,7 @@ export default function Navbar() {
                   <motion.span
                     layoutId="nav-pill"
                     className="absolute inset-0 rounded-lg"
-                    style={{ background: "rgba(0,212,255,0.08)" }}
+                    style={{ background: "rgba(232,150,60,0.08)" }}
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -93,34 +92,75 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
-          <a
-            href="mailto:yididiyakebede@gmail.com"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-mono font-medium transition-all duration-200"
-            style={{
-              background: "rgba(0,212,255,0.1)",
-              border: "1px solid rgba(0,212,255,0.3)",
-              color: "var(--accent)",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "rgba(0,212,255,0.18)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "rgba(0,212,255,0.1)";
-            }}
-          >
-            Hire Me
-          </a>
+          {/* Right side actions */}
+          <div className="flex items-center gap-2">
+            {/* CTA */}
+            <a
+              href="mailto:yididiyakebede@gmail.com"
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-mono font-medium transition-all duration-200"
+              style={{
+                background: "rgba(232,150,60,0.1)",
+                border: "1px solid rgba(232,150,60,0.3)",
+                color: "var(--accent)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.background = "rgba(232,150,60,0.18)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.background = "rgba(232,150,60,0.1)";
+              }}
+            >
+              Hire Me
+            </a>
 
-          {/* Mobile menu toggle */}
-          <button
-            className="md:hidden p-2 rounded-lg"
-            style={{ color: "var(--text-secondary)" }}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+            {/* Theme toggle */}
+            <motion.button
+              onClick={toggle}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.92 }}
+              className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200"
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                color: "var(--text-secondary)",
+              }}
+              aria-label="Toggle theme"
+            >
+              <AnimatePresence mode="wait" initial={false}>
+                {theme === "dark" ? (
+                  <motion.span
+                    key="sun"
+                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    <Sun size={15} />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="moon"
+                    initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    <Moon size={15} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.button>
+
+            {/* Mobile menu toggle */}
+            <button
+              className="md:hidden p-2 rounded-lg"
+              style={{ color: "var(--text-secondary)" }}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -134,7 +174,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed top-[65px] left-0 right-0 z-40 md:hidden"
             style={{
-              background: "rgba(10,14,23,0.97)",
+              background: "var(--nav-scrolled-mobile)",
               borderBottom: "1px solid var(--border)",
             }}
           >
@@ -147,7 +187,7 @@ export default function Navbar() {
                   className="px-4 py-3 rounded-lg text-sm font-mono transition-colors"
                   style={{
                     color: active === l.href.slice(1) ? "var(--accent)" : "var(--text-secondary)",
-                    background: active === l.href.slice(1) ? "rgba(0,212,255,0.08)" : "transparent",
+                    background: active === l.href.slice(1) ? "rgba(232,150,60,0.08)" : "transparent",
                   }}
                 >
                   {l.label}

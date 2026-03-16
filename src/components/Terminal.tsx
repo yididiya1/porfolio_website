@@ -11,7 +11,7 @@ type Line = { segments: Segment[]; isCommand?: boolean; prompt?: string };
 // ── Resume data baked in ────────────────────────────────────────────────────
 const COMMANDS: Record<string, () => Line[]> = {
   help: () => [
-    { segments: [{ text: "Available commands:", color: "#00d4ff", bold: true }] },
+    { segments: [{ text: "Available commands:", color: "#E8963C", bold: true }] },
     { segments: [{ text: "" }] },
     { segments: [{ text: "  whoami       ", color: "#10b981" }, { text: "→ About me" }] },
     { segments: [{ text: "  skills       ", color: "#10b981" }, { text: "→ Technical skills" }] },
@@ -27,22 +27,22 @@ const COMMANDS: Record<string, () => Line[]> = {
   ],
 
   whoami: () => [
-    { segments: [{ text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", color: "#1e2d45" }] },
-    { segments: [{ text: "  Yididiya Kebede Aga", color: "#00d4ff", bold: true }] },
+    { segments: [{ text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", color: "#2E2520" }] },
+    { segments: [{ text: "  Yididiya Kebede Aga", color: "#E8963C", bold: true }] },
     { segments: [{ text: "  MS Data Science — Northeastern University (GPA: 4.0)", color: "#94a3b8" }] },
     { segments: [{ text: "" }] },
-    { segments: [{ text: "  Role:     ", color: "#7c3aed" }, { text: "Full-Stack Developer · ML Engineer · Data Scientist" }] },
-    { segments: [{ text: "  Location: ", color: "#7c3aed" }, { text: "Portland, ME (willing to relocate)" }] },
-    { segments: [{ text: "  Status:   ", color: "#7c3aed" }, { text: "✅ Available for opportunities", color: "#10b981" }] },
+    { segments: [{ text: "  Role:     ", color: "#3EC9B8" }, { text: "Full-Stack Developer · ML Engineer · Data Scientist" }] },
+    { segments: [{ text: "  Location: ", color: "#3EC9B8" }, { text: "Portland, ME (willing to relocate)" }] },
+    { segments: [{ text: "  Status:   ", color: "#3EC9B8" }, { text: "✅ Available for opportunities", color: "#10b981" }] },
     { segments: [{ text: "" }] },
     { segments: [{ text: "  I build intelligent, scalable systems — from real-time analytics", color: "#94a3b8" }] },
     { segments: [{ text: "  platforms to AI-powered learning tools. I love turning messy", color: "#94a3b8" }] },
     { segments: [{ text: "  data into things that actually matter.", color: "#94a3b8" }] },
-    { segments: [{ text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", color: "#1e2d45" }] },
+    { segments: [{ text: "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", color: "#2E2520" }] },
   ],
 
   skills: () => [
-    { segments: [{ text: "Technical Skills", color: "#00d4ff", bold: true }] },
+    { segments: [{ text: "Technical Skills", color: "#E8963C", bold: true }] },
     { segments: [{ text: "" }] },
     { segments: [{ text: "  Languages   ", color: "#f59e0b", bold: true }, { text: "Python  TypeScript  JavaScript  SQL  Java  Dart", color: "#94a3b8" }] },
     { segments: [{ text: "  Frontend    ", color: "#f59e0b", bold: true }, { text: "React.js  Next.js  Redux  HTML5  CSS3", color: "#94a3b8" }] },
@@ -53,7 +53,7 @@ const COMMANDS: Record<string, () => Line[]> = {
   ],
 
   experience: () => [
-    { segments: [{ text: "Work Experience", color: "#00d4ff", bold: true }] },
+    { segments: [{ text: "Work Experience", color: "#E8963C", bold: true }] },
     { segments: [{ text: "" }] },
     { segments: [{ text: "  [1] Full-Stack Developer @ Hydrus.ai", color: "#10b981", bold: true }] },
     { segments: [{ text: "      Jan 2025 – Jul 2025 · Remote (San Francisco, CA)", color: "#4a5568" }] },
@@ -69,23 +69,23 @@ const COMMANDS: Record<string, () => Line[]> = {
   ],
 
   projects: () => [
-    { segments: [{ text: "Projects", color: "#00d4ff", bold: true }] },
+    { segments: [{ text: "Projects", color: "#E8963C", bold: true }] },
     { segments: [{ text: "" }] },
-    { segments: [{ text: "  [1] Subscriber Analytics · Maine Trust for Local News", color: "#a78bfa", bold: true }] },
+    { segments: [{ text: "  [1] Subscriber Analytics · Maine Trust for Local News", color: "#3EC9B8", bold: true }] },
     { segments: [{ text: "      Python · Pandas · scikit-learn · Tableau", color: "#4a5568" }] },
     { segments: [{ text: "      EDA, churn prediction (Random Forest, Logistic Regression)", color: "#94a3b8" }] },
     { segments: [{ text: "" }] },
-    { segments: [{ text: "  [2] Modular ML Trading Research System", color: "#a78bfa", bold: true }] },
+    { segments: [{ text: "  [2] Modular ML Trading Research System", color: "#3EC9B8", bold: true }] },
     { segments: [{ text: "      Python · Marimo · scikit-learn · yfinance · Matplotlib", color: "#4a5568" }] },
     { segments: [{ text: "      Trade labeling engine, equity curves, backtesting framework", color: "#94a3b8" }] },
     { segments: [{ text: "" }] },
-    { segments: [{ text: "  [3] Age & Gender Estimation from Face Images", color: "#a78bfa", bold: true }] },
+    { segments: [{ text: "  [3] Age & Gender Estimation from Face Images", color: "#3EC9B8", bold: true }] },
     { segments: [{ text: "      PyTorch · EfficientNet · MediaPipe · Streamlit", color: "#4a5568" }] },
     { segments: [{ text: "      Multi-task learning on UTKFace, live Streamlit demo", color: "#94a3b8" }] },
   ],
 
   education: () => [
-    { segments: [{ text: "Education", color: "#00d4ff", bold: true }] },
+    { segments: [{ text: "Education", color: "#E8963C", bold: true }] },
     { segments: [{ text: "" }] },
     { segments: [{ text: "  🎓 Northeastern University", color: "#10b981", bold: true }] },
     { segments: [{ text: "     MS Data Science · Khoury College of Computer Sciences", color: "#94a3b8" }] },
@@ -99,27 +99,27 @@ const COMMANDS: Record<string, () => Line[]> = {
   ],
 
   contact: () => [
-    { segments: [{ text: "Contact", color: "#00d4ff", bold: true }] },
+    { segments: [{ text: "Contact", color: "#E8963C", bold: true }] },
     { segments: [{ text: "" }] },
-    { segments: [{ text: "  📧 Email    ", color: "#7c3aed" }, { text: "yididiyakebede@gmail.com" }] },
-    { segments: [{ text: "  📱 Phone    ", color: "#7c3aed" }, { text: "+1-207-408-2261" }] },
-    { segments: [{ text: "  🔗 LinkedIn ", color: "#7c3aed" }, { text: "linkedin.com/in/yididiya-kebede" }] },
-    { segments: [{ text: "  🐙 GitHub   ", color: "#7c3aed" }, { text: "github.com/yididiya1" }] },
-    { segments: [{ text: "  ♟  LeetCode ", color: "#7c3aed" }, { text: "leetcode.com/u/yididiyakebede" }] },
+    { segments: [{ text: "  📧 Email    ", color: "#3EC9B8" }, { text: "yididiyakebede@gmail.com" }] },
+    { segments: [{ text: "  📱 Phone    ", color: "#3EC9B8" }, { text: "+1-207-408-2261" }] },
+    { segments: [{ text: "  🔗 LinkedIn ", color: "#3EC9B8" }, { text: "linkedin.com/in/yididiya-kebede" }] },
+    { segments: [{ text: "  🐙 GitHub   ", color: "#3EC9B8" }, { text: "github.com/yididiya1" }] },
+    { segments: [{ text: "  ♟  LeetCode ", color: "#3EC9B8" }, { text: "leetcode.com/u/yididiyakebede" }] },
     { segments: [{ text: "" }] },
     { segments: [{ text: "  Response time: ~24h ⚡", color: "#10b981" }] },
   ],
 
   chess: () => [
-    { segments: [{ text: "Chess Challenge 🎯", color: "#00d4ff", bold: true }] },
+    { segments: [{ text: "Chess Challenge 🎯", color: "#E8963C", bold: true }] },
     { segments: [{ text: "" }] },
     { segments: [{ text: "  I'm always up for a game." }] },
     { segments: [{ text: "  Favorite opening : Sicilian Defense", color: "#94a3b8" }] },
     { segments: [{ text: "  Time control     : 10+0 Rapid", color: "#94a3b8" }] },
     { segments: [{ text: "  Style            : Positional / Tactical", color: "#94a3b8" }] },
     { segments: [{ text: "" }] },
-    { segments: [{ text: "  → Challenge on Lichess: ", color: "#a78bfa" }, { text: "https://lichess.org" }] },
-    { segments: [{ text: "  → Challenge on Chess.com: ", color: "#a78bfa" }, { text: "https://chess.com" }] },
+    { segments: [{ text: "  → Challenge on Lichess: ", color: "#3EC9B8" }, { text: "https://lichess.org" }] },
+    { segments: [{ text: "  → Challenge on Chess.com: ", color: "#3EC9B8" }, { text: "https://chess.com" }] },
   ],
 };
 
@@ -129,7 +129,7 @@ const EASTER_EGGS: Record<string, Line[]> = {
     { segments: [{ text: "[sudo] password for recruiter: ", color: "#f59e0b" }] },
     { segments: [{ text: "Authenticating..." }] },
     { segments: [{ text: "✅ Access granted. Excellent choice.", color: "#10b981", bold: true }] },
-    { segments: [{ text: "📨 Forwarding resume to your hiring pipeline...", color: "#00d4ff" }] },
+    { segments: [{ text: "📨 Forwarding resume to your hiring pipeline...", color: "#E8963C" }] },
     { segments: [{ text: "🚀 Yididiya will report on Monday.", color: "#10b981", bold: true }] },
   ],
   "rm -rf /": [
@@ -158,16 +158,16 @@ const EASTER_EGGS: Record<string, Line[]> = {
 function processHire(args: string): Line[] {
   const company = args.trim() || "your company";
   return [
-    { segments: [{ text: `📨 Hire request sent to ${company}...`, color: "#00d4ff" }] },
+    { segments: [{ text: `📨 Hire request sent to ${company}...`, color: "#E8963C" }] },
     { segments: [{ text: "✅ Done! Yididiya has been notified.", color: "#10b981", bold: true }] },
     { segments: [{ text: "📧 Reach out at yididiyakebede@gmail.com", color: "#94a3b8" }] },
   ];
 }
 
 const WELCOME: Line[] = [
-  { segments: [{ text: "╔═══════════════════════════════════════════╗", color: "#1e2d45" }] },
-  { segments: [{ text: "║   Welcome to Yididiya's interactive CLI   ║", color: "#00d4ff" }] },
-  { segments: [{ text: "╚═══════════════════════════════════════════╝", color: "#1e2d45" }] },
+  { segments: [{ text: "╔═══════════════════════════════════════════╗", color: "#2E2520" }] },
+  { segments: [{ text: "║   Welcome to Yididiya's interactive CLI   ║", color: "#E8963C" }] },
+  { segments: [{ text: "╚═══════════════════════════════════════════╝", color: "#2E2520" }] },
   { segments: [{ text: "" }] },
   { segments: [{ text: "  Type ", color: "#94a3b8" }, { text: "help", color: "#10b981", bold: true }, { text: " to see available commands.", color: "#94a3b8" }] },
   { segments: [{ text: "  There may be some ", color: "#94a3b8" }, { text: "easter eggs", color: "#f59e0b" }, { text: " hidden around... 👀", color: "#94a3b8" }] },
@@ -321,9 +321,9 @@ export default function TerminalSection() {
           transition={{ duration: 0.55 }}
           className="mb-10"
         >
-          <p className="section-label mb-2">// try me out</p>
+          <p className="section-label mb-2">§ try me out</p>
           <h2
-            className="text-3xl sm:text-4xl font-bold tracking-tight"
+            className="text-3xl sm:text-4xl font-bold"
             style={{ color: "var(--text-primary)" }}
           >
             Interactive{" "}
@@ -340,12 +340,12 @@ export default function TerminalSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="rounded-xl overflow-hidden"
-          style={{ border: "1px solid var(--border)", boxShadow: "0 0 60px rgba(0,212,255,0.05)" }}
+          style={{ border: "1px solid var(--border)", boxShadow: "0 0 60px rgba(232,150,60,0.05)" }}
         >
           {/* Title bar */}
           <div
             className="flex items-center justify-between px-4 py-3"
-            style={{ background: "#080c14", borderBottom: "1px solid var(--border)" }}
+            style={{ background: "var(--terminal-bar)", borderBottom: "1px solid var(--border)" }}
           >
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full" style={{ background: "#ff5f57" }} />
@@ -373,7 +373,7 @@ export default function TerminalSection() {
             ref={outputRef}
             className="overflow-y-auto px-5 pt-4 pb-2 font-mono text-sm leading-6 transition-all duration-300"
             style={{
-              background: "#060a12",
+              background: "var(--terminal-bg)",
               height: terminalHeight,
               scrollbarWidth: "thin",
               scrollbarColor: "var(--border) transparent",
@@ -388,7 +388,7 @@ export default function TerminalSection() {
           {/* Input row */}
           <div
             className="flex items-center gap-3 px-5 py-3 font-mono text-sm"
-            style={{ background: "#060a12", borderTop: "1px solid #0d1520" }}
+            style={{ background: "var(--terminal-bg)", borderTop: "1px solid var(--border)" }}
           >
             <span style={{ color: "#10b981", fontWeight: 600, whiteSpace: "nowrap", fontSize: "0.8rem" }}>
               visitor@yididiya.dev:~$
@@ -406,7 +406,7 @@ export default function TerminalSection() {
               className="flex-1 bg-transparent outline-none text-sm font-mono"
               style={{
                 color: "#e2e8f0",
-                caretColor: "#00d4ff",
+                caretColor: "#E8963C",
               }}
             />
             <span className="cursor-blink text-base" style={{ color: "var(--accent)" }}>▌</span>
@@ -433,12 +433,12 @@ export default function TerminalSection() {
               }}
               className="px-3 py-1 rounded-lg text-xs font-mono transition-all duration-150"
               style={{
-                background: "rgba(0,212,255,0.06)",
+                background: "rgba(232,150,60,0.06)",
                 border: "1px solid var(--border)",
                 color: "var(--text-secondary)",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(0,212,255,0.35)";
+                (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(232,150,60,0.35)";
                 (e.currentTarget as HTMLButtonElement).style.color = "var(--accent)";
               }}
               onMouseLeave={(e) => {

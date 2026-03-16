@@ -145,9 +145,9 @@ export default function Skills() {
           transition={{ duration: 0.55 }}
           className="mb-14"
         >
-          <p className="section-label mb-2">// 01. technical stack</p>
+          <p className="section-label mb-2">§ 01 — technical stack</p>
           <h2
-            className="text-3xl sm:text-4xl font-bold tracking-tight"
+            className="text-3xl sm:text-4xl font-bold"
             style={{ color: "var(--text-primary)" }}
           >
             Skills &{" "}
@@ -169,8 +169,8 @@ export default function Skills() {
                 <span
                   className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-mono font-bold flex-shrink-0"
                   style={{
-                    background: "rgba(0,212,255,0.08)",
-                    border: "1px solid rgba(0,212,255,0.22)",
+                    background: "rgba(232,150,60,0.08)",
+                    border: "1px solid rgba(232,150,60,0.22)",
                     color: "var(--accent)",
                   }}
                 >

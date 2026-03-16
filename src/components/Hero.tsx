@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import type { Easing } from "framer-motion";
 import { Github, Linkedin, Mail, ChevronDown, Code2 } from "lucide-react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { ISourceOptions } from "@tsparticles/engine";
+import { useTheme } from "@/components/ThemeProvider";
 
 const roles = ["Full-Stack Developer", "ML Engineer", "Data Scientist", "Backend Engineer"];
 
@@ -18,46 +19,47 @@ const fadeUp = (delay: number) => ({
   transition: { duration: 0.65, ease: EASE, delay },
 });
 
-const particlesConfig: ISourceOptions = {
-  background: { color: { value: "transparent" } },
-  fpsLimit: 60,
-  interactivity: {
-    events: {
-      onHover: { enable: true, mode: "grab" },
-      onClick: { enable: true, mode: "push" },
-    },
-    modes: {
-      grab: { distance: 160, links: { opacity: 0.5 } },
-      push: { quantity: 3 },
-    },
-  },
-  particles: {
-    color: { value: ["#00d4ff", "#7c3aed", "#10b981"] },
-    links: {
-      color: "#1e2d45",
-      distance: 140,
-      enable: true,
-      opacity: 0.35,
-      width: 1,
-    },
-    move: {
-      enable: true,
-      speed: 0.6,
-      direction: "none",
-      random: true,
-      outModes: { default: "bounce" },
-    },
-    number: { value: 70, density: { enable: true } },
-    opacity: { value: { min: 0.2, max: 0.7 }, animation: { enable: true, speed: 0.5, sync: false } },
-    shape: { type: "circle" },
-    size: { value: { min: 1, max: 3 } },
-  },
-  detectRetina: true,
-};
-
 export default function Hero() {
   const roleRef = useRef<HTMLSpanElement>(null);
   const [engineReady, setEngineReady] = useState(false);
+  const { theme } = useTheme();
+
+  const particlesConfig = useMemo<ISourceOptions>(() => ({
+    background: { color: { value: "transparent" } },
+    fpsLimit: 60,
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "grab" },
+        onClick: { enable: true, mode: "push" },
+      },
+      modes: {
+        grab: { distance: 160, links: { opacity: 0.5 } },
+        push: { quantity: 3 },
+      },
+    },
+    particles: {
+      color: { value: ["#E8963C", "#3EC9B8", "#5DB88A"] },
+      links: {
+        color: theme === "dark" ? "#2E2520" : "#C8B89A",
+        distance: 140,
+        enable: true,
+        opacity: theme === "dark" ? 0.35 : 0.5,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 0.6,
+        direction: "none",
+        random: true,
+        outModes: { default: "bounce" },
+      },
+      number: { value: 70, density: { enable: true } },
+      opacity: { value: { min: 0.2, max: 0.7 }, animation: { enable: true, speed: 0.5, sync: false } },
+      shape: { type: "circle" },
+      size: { value: { min: 1, max: 3 } },
+    },
+    detectRetina: true,
+  }), [theme]);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -108,6 +110,7 @@ export default function Hero() {
       {/* tsParticles background */}
       {engineReady && (
         <Particles
+          key={theme}
           id="hero-particles"
           particlesLoaded={particlesLoaded}
           options={particlesConfig}
@@ -117,12 +120,12 @@ export default function Hero() {
 
       {/* Gradient blobs */}
       <div
-        className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-[0.08]"
-        style={{ background: "radial-gradient(circle, #00d4ff 0%, transparent 70%)" }}
+        className="pointer-events-none absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full opacity-[0.09]"
+        style={{ background: "radial-gradient(circle, #E8963C 0%, transparent 70%)" }}
       />
       <div
         className="pointer-events-none absolute -bottom-40 -right-20 w-[500px] h-[500px] rounded-full opacity-[0.07]"
-        style={{ background: "radial-gradient(circle, #7c3aed 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #3EC9B8 0%, transparent 70%)" }}
       />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-20 text-center">
@@ -144,7 +147,7 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           {...fadeUp(0.2)}
-          className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold mb-4"
           style={{ color: "var(--text-primary)" }}
         >
           Yididiya{" "}
@@ -199,7 +202,7 @@ export default function Hero() {
               color: "var(--text-primary)",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(0,212,255,0.4)";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(232,150,60,0.4)";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
@@ -230,7 +233,7 @@ export default function Hero() {
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLAnchorElement;
-                el.style.borderColor = "rgba(0,212,255,0.4)";
+                el.style.borderColor = "rgba(232,150,60,0.4)";
                 el.style.color = "var(--accent)";
               }}
               onMouseLeave={(e) => {

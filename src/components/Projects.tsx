@@ -8,20 +8,20 @@ import { ExternalLink } from "lucide-react";
 function SubscriberAnalyticsPreview() {
   return (
     <svg viewBox="0 0 320 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <rect width="320" height="140" fill="#0a0e17" />
+      <rect width="320" height="140" fill="#0D0B09" />
       {/* Grid lines */}
       {[30, 60, 90, 120].map((y) => (
-        <line key={y} x1="32" y1={y} x2="300" y2={y} stroke="#1e2d45" strokeWidth="0.5" />
+        <line key={y} x1="32" y1={y} x2="300" y2={y} stroke="#2E2520" strokeWidth="0.5" />
       ))}
       {/* Bars */}
       {[
-        { x: 45,  h: 70, color: "#00d4ff" },
-        { x: 80,  h: 45, color: "#00d4ff" },
-        { x: 115, h: 90, color: "#10b981" },
-        { x: 150, h: 55, color: "#00d4ff" },
-        { x: 185, h: 100, color: "#10b981" },
-        { x: 220, h: 40, color: "#00d4ff" },
-        { x: 255, h: 75, color: "#7c3aed" },
+        { x: 45,  h: 70, color: "#E8963C" },
+        { x: 80,  h: 45, color: "#E8963C" },
+        { x: 115, h: 90, color: "#5DB88A" },
+        { x: 150, h: 55, color: "#E8963C" },
+        { x: 185, h: 100, color: "#5DB88A" },
+        { x: 220, h: 40, color: "#E8963C" },
+        { x: 255, h: 75, color: "#3EC9B8" },
       ].map((b, i) => (
         <rect key={i} x={b.x} y={130 - b.h} width="22" height={b.h} rx="3" fill={b.color} opacity="0.7" />
       ))}
@@ -59,9 +59,9 @@ function TradingPreview() {
   ];
   return (
     <svg viewBox="0 0 320 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <rect width="320" height="140" fill="#0a0e17" />
+      <rect width="320" height="140" fill="#0D0B09" />
       {[40, 70, 100, 130].map((y) => (
-        <line key={y} x1="24" y1={y} x2="300" y2={y} stroke="#1e2d45" strokeWidth="0.5" />
+        <line key={y} x1="24" y1={y} x2="300" y2={y} stroke="#2E2520" strokeWidth="0.5" />
       ))}
       {candles.map((c, i) => {
         const isGreen = c.c < c.o;
@@ -78,7 +78,7 @@ function TradingPreview() {
       {/* Equity curve */}
       <polyline
         points="47,95 75,82 103,60 131,72 159,52 187,68 215,78 243,55 271,68"
-        stroke="#00d4ff"
+        stroke="#E8963C"
         strokeWidth="2"
         fill="none"
         strokeDasharray="4 2"
@@ -98,27 +98,27 @@ function FaceMLPreview() {
   ];
   return (
     <svg viewBox="0 0 320 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <rect width="320" height="140" fill="#0a0e17" />
+      <rect width="320" height="140" fill="#0D0B09" />
       {/* Neural net dots background */}
       {[...Array(20)].map((_, i) => (
-        <circle key={i} cx={18 + (i % 5) * 70} cy={20 + Math.floor(i / 5) * 22} r="1.5" fill="#1e2d45" />
+        <circle key={i} cx={18 + (i % 5) * 70} cy={20 + Math.floor(i / 5) * 22} r="1.5" fill="#2E2520" />
       ))}
       {faces.map((f, i) => (
         <g key={i}>
           {/* Detection box */}
           <rect x={f.cx - f.r - 2} y={f.cy - f.r - 2} width={(f.r + 2) * 2} height={(f.r + 2) * 2}
-            rx="3" stroke="#00d4ff" strokeWidth="1.5" strokeDasharray="4 2" fill="transparent" opacity="0.7" />
+            rx="3" stroke="#E8963C" strokeWidth="1.5" strokeDasharray="4 2" fill="transparent" opacity="0.7" />
           {/* Face circle */}
           <circle cx={f.cx} cy={f.cy} r={f.r} fill="#151d2e" stroke="#1e2d45" strokeWidth="1" />
           {/* Eyes */}
-          <circle cx={f.cx - 9} cy={f.cy - 6} r="3.5" fill="#00d4ff" opacity="0.5" />
-          <circle cx={f.cx + 9} cy={f.cy - 6} r="3.5" fill="#00d4ff" opacity="0.5" />
+          <circle cx={f.cx - 9} cy={f.cy - 6} r="3.5" fill="#E8963C" opacity="0.5" />
+          <circle cx={f.cx + 9} cy={f.cy - 6} r="3.5" fill="#E8963C" opacity="0.5" />
           {/* Smile */}
           <path d={`M${f.cx - 9} ${f.cy + 8} Q${f.cx} ${f.cy + 16} ${f.cx + 9} ${f.cy + 8}`}
             stroke="#94a3b8" strokeWidth="1.5" fill="none" strokeLinecap="round" />
           {/* Label */}
           <rect x={f.cx - f.r - 2} y={f.cy + f.r} width={(f.r + 2) * 2} height="16"
-            rx="2" fill="#00d4ff" opacity="0.85" />
+            rx="2" fill="#E8963C" opacity="0.85" />
           <text x={f.cx} y={f.cy + f.r + 11} textAnchor="middle"
             fill="#0a0e17" fontSize="7.5" fontFamily="monospace" fontWeight="bold">
             {f.gender} · {f.age}y
@@ -172,19 +172,19 @@ const projects = [
 ];
 
 const typeColors: Record<string, string> = {
-  academic: "rgba(16,185,129,0.12)",
-  personal: "rgba(0,212,255,0.12)",
-  ml: "rgba(124,58,237,0.12)",
+  academic: "rgba(93,184,138,0.12)",
+  personal: "rgba(232,150,60,0.12)",
+  ml: "rgba(62,201,184,0.12)",
 };
 const typeBorders: Record<string, string> = {
-  academic: "rgba(16,185,129,0.3)",
-  personal: "rgba(0,212,255,0.3)",
-  ml: "rgba(124,58,237,0.3)",
+  academic: "rgba(93,184,138,0.35)",
+  personal: "rgba(232,150,60,0.35)",
+  ml: "rgba(62,201,184,0.35)",
 };
 const typeText: Record<string, string> = {
-  academic: "#10b981",
+  academic: "#5DB88A",
   personal: "var(--accent)",
-  ml: "#a78bfa",
+  ml: "#3EC9B8",
 };
 const typeLabels: Record<string, string> = {
   academic: "Academic",
@@ -211,9 +211,9 @@ export default function Projects() {
           transition={{ duration: 0.55 }}
           className="mb-14"
         >
-          <p className="section-label mb-2">// 03. selected work</p>
+          <p className="section-label mb-2">§ 03 — selected work</p>
           <h2
-            className="text-3xl sm:text-4xl font-bold tracking-tight"
+            className="text-3xl sm:text-4xl font-bold"
             style={{ color: "var(--text-primary)" }}
           >
             Academic{" "}
@@ -233,7 +233,7 @@ export default function Projects() {
               {/* ── Placeholder image banner ── */}
               <div
                 className="relative overflow-hidden"
-                style={{ height: "140px", background: "#080c14", borderBottom: "1px solid var(--border)" }}
+                style={{ height: "140px", background: "var(--preview-bg)", borderBottom: "1px solid var(--border)" }}
               >
                 <proj.Preview />
                 {/* Overlay shimmer on hover */}

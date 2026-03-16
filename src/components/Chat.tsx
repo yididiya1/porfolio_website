@@ -133,8 +133,8 @@ export default function ChatWidget() {
           whileTap={{ scale: 0.95 }}
           className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-xl transition-all"
           style={{
-            background: "linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%)",
-            boxShadow: "0 0 30px rgba(0,212,255,0.3)",
+            background: "linear-gradient(135deg, #E8963C 0%, #3EC9B8 100%)",
+            boxShadow: "0 0 30px rgba(232,150,60,0.25)",
           }}
           aria-label="Open chat"
         >
@@ -166,20 +166,20 @@ export default function ChatWidget() {
               height: "520px",
               border: "1px solid var(--border)",
               background: "var(--background)",
-              boxShadow: "0 24px 80px rgba(0,0,0,0.5), 0 0 40px rgba(0,212,255,0.07)",
+              boxShadow: "0 24px 80px rgba(0,0,0,0.5), 0 0 40px rgba(232,150,60,0.07)",
             }}
           >
             {/* Header */}
             <div
               className="flex items-center gap-3 px-4 py-3 flex-shrink-0"
               style={{
-                background: "linear-gradient(135deg, rgba(0,212,255,0.1) 0%, rgba(124,58,237,0.1) 100%)",
+                background: "linear-gradient(135deg, rgba(232,150,60,0.1) 0%, rgba(62,201,184,0.1) 100%)",
                 borderBottom: "1px solid var(--border)",
               }}
             >
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)" }}
+                style={{ background: "linear-gradient(135deg, #E8963C, #3EC9B8)" }}
               >
                 <Sparkles size={16} color="white" />
               </div>
@@ -214,7 +214,7 @@ export default function ChatWidget() {
                     className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mb-0.5"
                     style={{
                       background: msg.role === "assistant"
-                        ? "linear-gradient(135deg, #00d4ff, #7c3aed)"
+                        ? "linear-gradient(135deg, #E8963C, #3EC9B8)"
                         : "rgba(255,255,255,0.08)",
                       border: msg.role === "user" ? "1px solid var(--border)" : "none",
                     }}
@@ -231,8 +231,8 @@ export default function ChatWidget() {
                     style={
                       msg.role === "user"
                         ? {
-                            background: "linear-gradient(135deg, #00d4ff22, #7c3aed22)",
-                            border: "1px solid rgba(0,212,255,0.25)",
+                            background: "linear-gradient(135deg, #E8963C22, #3EC9B822)",
+                            border: "1px solid rgba(232,150,60,0.25)",
                             color: "var(--text-primary)",
                             borderBottomRightRadius: "4px",
                           }
@@ -258,7 +258,7 @@ export default function ChatWidget() {
                 >
                   <div
                     className="w-7 h-7 rounded-lg flex items-center justify-center"
-                    style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)" }}
+                    style={{ background: "linear-gradient(135deg, #E8963C, #3EC9B8)" }}
                   >
                     <Bot size={13} color="white" />
                   </div>
@@ -293,7 +293,7 @@ export default function ChatWidget() {
                         color: "var(--text-secondary)",
                       }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(0,212,255,0.3)";
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(232,150,60,0.3)";
                         (e.currentTarget as HTMLButtonElement).style.color = "var(--text-primary)";
                       }}
                       onMouseLeave={(e) => {
@@ -337,8 +337,8 @@ export default function ChatWidget() {
                 }}
               >
                 {loading
-                  ? <Loader2 size={14} className="animate-spin" style={{ color: "#0a0e17" }} />
-                  : <Send size={14} style={{ color: "#0a0e17" }} />
+                  ? <Loader2 size={14} className="animate-spin" style={{ color: "#0D0B09" }} />
+                  : <Send size={14} style={{ color: "#0D0B09" }} />
                 }
               </motion.button>
             </div>

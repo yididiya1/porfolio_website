@@ -54,9 +54,9 @@ export default function Experience() {
           transition={{ duration: 0.55 }}
           className="mb-14"
         >
-          <p className="section-label mb-2">// 02. work history</p>
+          <p className="section-label mb-2">§ 02 — work history</p>
           <h2
-            className="text-3xl sm:text-4xl font-bold tracking-tight"
+            className="text-3xl sm:text-4xl font-bold"
             style={{ color: "var(--text-primary)" }}
           >
             Professional{" "}
@@ -86,8 +86,8 @@ export default function Experience() {
                   <div
                     className="w-14 h-14 rounded-xl flex items-center justify-center z-10"
                     style={{
-                      background: "rgba(0,212,255,0.1)",
-                      border: "1px solid rgba(0,212,255,0.3)",
+                      background: "rgba(232,150,60,0.1)",
+                      border: "1px solid rgba(232,150,60,0.3)",
                     }}
                   >
                     <Briefcase size={18} style={{ color: "var(--accent)" }} />
@@ -131,8 +131,8 @@ export default function Experience() {
                     <span
                       className="text-xs font-mono px-3 py-1 rounded-full"
                       style={{
-                        background: "rgba(0,212,255,0.07)",
-                        border: "1px solid rgba(0,212,255,0.2)",
+                        background: "rgba(232,150,60,0.07)",
+                        border: "1px solid rgba(232,150,60,0.2)",
                         color: "var(--accent)",
                         whiteSpace: "nowrap",
                       }}

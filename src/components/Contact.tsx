@@ -62,9 +62,9 @@ export default function Contact() {
           transition={{ duration: 0.55 }}
           className="mb-14"
         >
-          <p className="section-label mb-2">// 06. get in touch</p>
+          <p className="section-label mb-2">§ 06 — get in touch</p>
           <h2
-            className="text-3xl sm:text-4xl font-bold tracking-tight"
+            className="text-3xl sm:text-4xl font-bold"
             style={{ color: "var(--text-primary)" }}
           >
             Let&apos;s{" "}
@@ -105,7 +105,7 @@ export default function Contact() {
                       border: "1px solid var(--border)",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(0,212,255,0.3)";
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(232,150,60,0.3)";
                     }}
                     onMouseLeave={(e) => {
                       (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border)";
@@ -113,7 +113,7 @@ export default function Contact() {
                   >
                     <div
                       className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.18)" }}
+                      style={{ background: "rgba(232,150,60,0.08)", border: "1px solid rgba(232,150,60,0.18)" }}
                     >
                       <Icon size={16} style={{ color: "var(--accent)" }} />
                     </div>
@@ -129,7 +129,7 @@ export default function Contact() {
                   >
                     <div
                       className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.18)" }}
+                      style={{ background: "rgba(232,150,60,0.08)", border: "1px solid rgba(232,150,60,0.18)" }}
                     >
                       <Icon size={16} style={{ color: "var(--accent)" }} />
                     </div>
@@ -167,7 +167,7 @@ export default function Contact() {
             {/* Terminal body */}
             <div
               className="p-6 font-mono text-sm"
-              style={{ background: "#080c14", minHeight: "260px" }}
+              style={{ background: "var(--terminal-bg)", minHeight: "260px" }}
             >
               <p style={{ color: "#10b981" }}>
                 $ <span style={{ color: "var(--text-secondary)" }}>whoami</span>
